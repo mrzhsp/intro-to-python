@@ -32,3 +32,29 @@ print("Happy birthday to you")
 temp_far = input("Please enter the temperature in Farenheit")
 print((temp_far - 31) * 5 / 9)
 # endregion
+
+# region Manipulate Strings
+greeting = "Hello there"
+greeting.capitalize()
+greeting.title()
+greeting.count("l")  # count the number of a certain letter
+greeting.count("h")
+greeting.count("H")
+greeting.lower().count("h")  # First turn everything to lower, then count
+greeting.find(" ")  # Find the location/index of the letter
+greeting.find("x")  # This returns -1 which means there is no "x".
+# endregion
+
+# region Adding strings and stuff together
+animal = "cow"
+animal_sound = "mow"
+"The " + animal + " says " + animal_sound.upper()
+
+# We can do this in another way. The format use the values to put in {}.
+"The {} says {}".format(animal, animal_sound.upper())
+"The {0} says {1}".format(animal, animal_sound)
+"The {a} says {b}".format(a=animal, b=animal_sound)
+f"The {animal} says {animal_sound.upper()}"  # This is even easier!
+# In this mode, anything in the "" will be treated as strings. Things in {}
+#   will reference a variable that already exists.
+# endregion
