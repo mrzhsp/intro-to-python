@@ -11,7 +11,11 @@ answer = random.randint(1, 10)
 guess = int(input("I'm thinking of a number between 1 and 10: "))
 
 # If the number is correct, tell the user
+if guess == answer:
+    print("Congratulations! you guessed it right.")
 # Otherwise, tell them if the answer is higher or lower than their guess
-
-
-print('The number was {}'.format(answer))
+elif guess < answer:
+    print("The answer is higher than {}.".format(guess))
+else:
+    print("The answer is lower than {}.".format(guess))
+print('The number was {}.'.format(answer))

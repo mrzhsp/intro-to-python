@@ -28,11 +28,6 @@ print("Happy birthday dear " + name)
 print("Happy birthday to you")
 # endregion
 
-# region Temperature Converter
-temp_far = input("Please enter the temperature in Farenheit")
-print((temp_far - 31) * 5 / 9)
-# endregion
-
 # region Manipulate Strings
 greeting = "Hello there"
 greeting.capitalize()
@@ -57,4 +52,90 @@ animal_sound = "mow"
 f"The {animal} says {animal_sound.upper()}"  # This is even easier!
 # In this mode, anything in the "" will be treated as strings. Things in {}
 #   will reference a variable that already exists.
+# endregion
+
+# region Problem Solving like a Programmer
+#   Step 1: Understand the problem
+#   Step 2: Break it down into smaller problems
+#   Step 3: Write it down using computer logic
+#           If, Else, Not, Or, And
+#   Step 4: Translate to code
+# endregion
+
+# region True/False statements
+fruit1 = "apples"
+fruit2 = "oranges"
+fruit1 == fruit2
+fruit1 != fruit2
+fruit1.isnumeric()
+fruit1.isalpha()
+1 < 2 and 1 < 3
+1 < 2 or 1 / 0 == 0
+'n' in "Nasa"
+'n' in "navegante"
+# endregion
+
+# region Conditional "if" statements
+hungry = False
+water_temp = -1
+
+if hungry:
+    print("Go eat something")
+    print("Maybe a banana")
+elif water_temp < 0:
+    print("Maybe a cup of warm tea!")
+else:
+    print("Then get away from the fridge!")
+print("Continue with your life")
+
+water_temp = 0
+
+if water_temp < 0:
+    print("It's too cold")
+elif water_temp > 100:
+    print("It's too warm")
+else:
+    print("It's ok to drink water")
+
+"""
+This code should get the user to guess a random number between 1 and 10.
+If the user is right, congratulate them.
+If they're wrong, say if the answer is higher or lower.
+Then say what the answer was.
+"""
+import random
+
+answer = random.randint(1, 10)
+
+guess = int(input("I'm thinking of a number between 1 and 10: "))
+
+# If the number is correct, tell the user
+if guess == answer:
+    print("Congratulations! you guessed it right.")
+# Otherwise, tell them if the answer is higher or lower than their guess
+elif guess < answer:
+    print("The answer is higher than {}.".format(guess))
+else:
+    print("The answer is lower than {}.".format(guess))
+print('The number was {}.'.format(answer))
+# endregion
+
+# region "Playing with Loops"
+"""
+One important aspect of looping is the order of elements we want to happen. 
+For example, it is important to see when we want to add an item and then print.
+"""
+
+x = 0
+while x < 20:
+    x = x + 1
+    if x % 2 == 1:
+        continue
+        # With this condition and continue, it will skip the remaining parts.
+        # Go back to the loop and continue.
+    print(x)
+    if x == 8:
+        break
+print("Stopped looping")
+
 # endregion
