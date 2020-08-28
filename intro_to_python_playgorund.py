@@ -120,7 +120,7 @@ else:
 print('The number was {}.'.format(answer))
 # endregion
 
-# region "Playing with Loops"
+# region Playing with While Loops
 """
 One important aspect of looping is the order of elements we want to happen. 
 For example, it is important to see when we want to add an item and then print.
@@ -139,3 +139,61 @@ while x < 20:
 print("Stopped looping")
 
 # endregion
+
+# region Create and Manipulate lists
+cities = ['Melbourne', 'Vienna', 'Vancouver', 'Toronto', 'Calgary']
+print(cities)
+print(f'The top {len(cities)} most livable cities:')
+print(cities[0])
+print(cities[-1])  # This would give Vancouver again because it can count
+# backwards.
+print(cities[1:4])  # The important point is that this function does not
+# include the 4th element. So it does not give the Calgary!!!
+print(cities[:3])
+print(cities[3:])
+print(cities[::1])  # This will give the elements with 1 distance.
+print(cities[::2])  # This wil give every two elements.
+print(cities[::-1])  # It can also go in reverse.
+cities.append('Rotterdam')  # This will add an item to the list.
+cities.remove('Rotterdam')
+cities.pop()  # This will remove the last item from the list.
+cities.sort()  # Sort alphatecially.
+# Press command and click on a function.
+help(cities)
+cities[1] = 'Osaka'
+cities.insert(0, 'Amsterdam')
+cities.insert(0, True)
+cities.insert(0, [1, 2, 3])  # We can add anything to the list.
+# endregion
+
+# region Loop over Lists with For Loops
+cities = ['Melbourne', 'Vienna', 'Vancouver', 'Toronto', 'Calgary']
+
+for city in cities:
+    print(city)
+# range(): creates a list of numbers from a starting point to an end point
+# with pre-defined increments.
+
+for number in range(5):
+    print(number)
+
+for number in range(5, 10):
+    print(number)
+
+for number in range(5, 100, 2):
+    print(number)
+
+word = input('Type a word: ')
+num_vowels = 0
+for letter in word.lower():
+    if letter in ['a', 'e', 'i', 'o', 'u']:
+        num_vowels += 1
+print(f'There are {num_vowels} vowels in {word}')
+# endregion
+
+
+
+
+
+
+

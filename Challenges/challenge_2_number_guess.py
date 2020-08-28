@@ -96,3 +96,66 @@ def run_game():
 # endregion
 
 run_game()
+
+
+# region The same code with While loop
+def run_game1():
+    answer = random.randint(1, 20)
+    print("I'm thinking of a number between 1 and 20.")
+
+    num_guesses = 3
+    while True:
+        print(f'You have {num_guesses} guesses left')
+        guess = int(input("Guess a number: "))
+        num_guesses -= 1
+
+        if guess == answer:
+            print("Congratulations! You guessed correctly.")
+            return
+        elif num_guesses == 0:
+            break
+            # Because we have a break here, there is no need for a condition
+            # in while statement. We can use a simple "True" instead.
+        elif guess < answer:
+            print("Guess higher!")
+        else:
+            print("Guess lower!")
+
+    print("You lost. The number was {}.".format(answer))
+    return
+
+
+run_game1()
+
+
+# endregion
+
+# region The same code with For loop
+def run_game2():
+    answer = random.randint(1, 20)
+    print("I'm thinking of a number between 1 and 20.")
+
+    num_guesses = 3
+    for num_guess in range(num_guesses):
+        print(f'You have {num_guesses} guesses left')
+        guess = int(input("Guess a number: "))
+
+        if guess == answer:
+            print("Congratulations! You guessed correctly.")
+            return
+        elif num_guesses == 0:
+            break
+            # Because we have a break here, there is no need for a condition
+            # in while statement. We can use a simple "True" instead.
+        elif guess < answer:
+            print("Guess higher!")
+        else:
+            print("Guess lower!")
+
+    print("You lost. The number was {}.".format(answer))
+    return
+
+
+run_game2()
+
+# endregion
