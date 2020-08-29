@@ -46,10 +46,120 @@ After each guess, display the correct guesses, the wrong guesses,
 and the number of wrong guesses left.
 If the user doesn't win, tell them the answer.
 """
+import random
 
 
-def word_game():
-    pass
+# region My Code.
+# def word_game():
+#     answer = random.choice(words)
+#     print('I am thinking of a word.')
+#     # I need to tell the player that how many character there is in this
+#     # word. Also, I have to tell the player of the index of positions,
+#     # which is one less than the number of letters in python.
+#     print(f'This word has {len(answer)} letters in it, with positions of 0 to '
+#           f'{len(answer) - 1}')
+#
+#     num_guesses = 6
+#     for num_guess in range(num_guesses):
+#         print(f'You have {num_guesses} guesses left')
+#         # The input is given.
+#         guess_letter = input('Guess 1 letter from "a" to "z": ')
+#         # The number of guesses will be adjusted after each play.
+#         num_guesses -= 1
+#
+#         # This chunk of code is for counting the number of repetitive letters
+#         # if any.
+#         if guess_letter in answer:
+#             count = 0
+#             for letter in answer:
+#                 if letter == guess_letter:
+#                     count = count + 1
+#             print(f'Yep, there is {count} "{guess_letter}" in this word, '
+#                   f'in positions:')
+#             # This code is for reporting the indexes in which the guessed
+#             # letter exists. If it is repetitive, it will give the position
+#             # of all indexes.
+#             print([pos for pos, char in enumerate(answer) if char ==
+#                    guess_letter])
+#             # Here, the player has the opportunity to guess the whole word.
+#             guess_word = input('Now you can guess the word: ')
+#
+#             # This chunk is for determining if the guess of the word is
+#             # correct.
+#             if guess_word == answer:
+#                 print('congratulation! You won.')
+#                 return
+#             elif num_guesses == 0:
+#                 break
+#             else:
+#                 print('Nope. You guessed incorrectly.')
+#         # This is the remaining logic, if the player guessed the letter
+#         # incorrectly.
+#         else:
+#             print(f'There is no "{guess_letter}" in this word. Guess another '
+#                   f'letter.')
+#     # This will give the ending of the game, if the player makes all guesses
+#     # incorrectly.
+#     print("You lost. The correct word was {}.".format(answer))
+#     return
+# word_game()
+# endregion
+
+# region Correct Answer
+def word_game1():
+    # Pick a random word (test word is "hello")
+    answer = random.choice(words)
+    num_wrong_guesses_left = 6
+    guessed_letters = []
+
+    while num_wrong_guesses_left > 0:
+        # Display to user "_ _ _ _ _".
+        #    If we run it, we will see that there is an extra space at the end.
+        #    To remove the extra space, we can use "display_word.strip()". This
+        #    command will remove extra spaces in the beginning and the end of
+        #    the word.
+        display_word = ''
+        for letter in answer:
+            # We want to put the correct letters in place of "_". We can do
+            # it by displaying the correct guess on the answer! Since this is
+            # a loop, it goes over all letters in the answer. If the letter
+            # is already guessed, it will show it. Else, it will replace it
+            # with "_".
+            if letter in guessed_letters:
+                display_word += letter
+            else:
+                display_word += '_'
+            display_word += ' '
+        print(display_word.strip())
+        # Display the number of wrong guess they have left (6)
+        print(f'{num_wrong_guesses_left} wrong guesses left')
+        print(f'you have guessed: "{guessed_letters}"')
+
+        # Guess a letter
+        guess = input('Guess a letter: ')
+        guessed_letters.append(guess)
+
+        # If letter is in word
+        if guess in answer:
+            print('Correct! :)')
+        else:
+            print("Nope! :(")
+            num_wrong_guesses_left -= 1
+
+        # Check if they won
+        won = True
+        for letter in answer:
+            if letter not in guessed_letters:
+                won = False
+                break
+        if won:
+            print('You won!')
+            return
+    print("You lost!")
+    print(f'The answer was {answer}')
+
+        # You lost, exit
 
 
-word_game()
+word_game1()
+# endregion

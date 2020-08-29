@@ -38,6 +38,9 @@ greeting.count("H")
 greeting.lower().count("h")  # First turn everything to lower, then count
 greeting.find(" ")  # Find the location/index of the letter
 greeting.find("x")  # This returns -1 which means there is no "x".
+greeting.strip()   # This will remove extra spaces from the beginning and end
+# of string.
+
 # endregion
 
 # region Adding strings and stuff together
@@ -191,7 +194,9 @@ for letter in word.lower():
 print(f'There are {num_vowels} vowels in {word}')
 # endregion
 
+# region
 
+# endregion
 
 
 

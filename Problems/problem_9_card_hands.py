@@ -14,7 +14,7 @@ for suit in suits:
         # Here, use "append" to add the suits to values. It ends up
         # with 52 cards.
         cards.append(suit + value)
-# print(cards)
+print(cards)
 # print(len(cards))
 
 # Here I added a twist. This will provide 5 deals with 5 cards in each deal.
